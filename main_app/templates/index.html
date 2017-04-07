@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<link href="{% static 'bootstrap.min.css' %}"
+			rel="stylesheet">
+		<link href="{% static 'style.css' %}" 
+			rel="stylesheet">
+		
+		<title>Szklarnia</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top text-center" >
+			<a href="/">
+				<img src="{% static 'images/logo.png' %}" alt="Szklarnia">
+		</a> </nav>
+<main class="container" role="main">
+	<div class="szklarnia panel panel-default">
+	{% for szklarnia in parametry %}
+	<div class="panel-heading">
+		<h2 class="panel-title">{{ szklarnia.name }}</h2>
+	</div>
+	<div class="panel-body">
+		
+			<tr>
+				<th>
+					<img src="{% static 'images/value.png' %}">
+					wartosc:
+				</th>
+				<td>{{ szklarnia.value }}</td>
+			</tr>
+			<tr>
+				<th>
+					<img src="{% static 'images/uwagi.png' %}">
+					uwagi:
+				</th>
+				<td>{{ szklarnia.reservations }}</td>
+			</tr>
+		
+		
+		
+	</div>
+	{% endfor %}
+	</div>
+		
+	
+</main>
+	</body>
+</html>
